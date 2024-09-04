@@ -22,6 +22,7 @@ import lombok.Data;
 @RequestMapping("/basic")
 public class BasicController {
 
+    // 텍스트 - text, utext
     @GetMapping("/text-basic")
     public String textBasic(Model model) {
         model.addAttribute("data", "Hello Spring!");
@@ -34,6 +35,7 @@ public class BasicController {
         return "basic/text-unescaped";
     }
 
+    // 변수 - SpringEL
     @GetMapping("/variable")
     public String variable(Model model) {
         User userA = new User("userA", 10);
@@ -50,6 +52,7 @@ public class BasicController {
         return "basic/variable";
     }
 
+    // 기본객체들
     @GetMapping("/basic-objects")
     public String basicObjects(Model model, HttpServletRequest request,
             HttpServletResponse response, HttpSession session) {
@@ -67,12 +70,15 @@ public class BasicController {
         }
     }
 
+    
+    // 유틸리티 객체와 날짜
     @GetMapping("/date")
     public String date(Model model) {
         model.addAttribute("localDateTime", LocalDateTime.now());
         return "basic/date";
     }
 
+    // URL 링크
     @GetMapping("/link")
     public String link(Model model) {
         model.addAttribute("param1", "data1");
@@ -80,12 +86,14 @@ public class BasicController {
         return "basic/link";
     }
 
+    // 리터럴
     @GetMapping("/literal")
     public String literal(Model model) {
         model.addAttribute("data", "Spring!");
         return "basic/literal";
     }
 
+    // 연산 
     @GetMapping("/operation")
     public String operation(Model model) {
         model.addAttribute("nullData", null);
@@ -93,11 +101,13 @@ public class BasicController {
         return "basic/operation";
     }
 
+    // 속성 값 설정
     @GetMapping("/attribute")
     public String attribute() {
         return "basic/attribute";
     }
 
+    // 반복
     @GetMapping("/each")
     public String each(Model model) {
         addUsers(model);
@@ -112,10 +122,18 @@ public class BasicController {
         model.addAttribute("users", list);
     }
 
+    // 조건부 평가
     @GetMapping("/condition")
     public String condition(Model model) {
         addUsers(model);
         return "basic/condition";
+    }
+
+    // 주석
+    @GetMapping("/comments")
+    public String comments(Model model) {
+        model.addAttribute("data", "Spring!");
+        return "basic/comments";
     }
 
     @Data
