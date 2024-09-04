@@ -7,10 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/template")
 public class TemplateController {
-    
+
     // 템플릿 조각
     @GetMapping("/fragment")
     public String template() {
         return "fragment/fragmentMain";
+    }
+
+    @GetMapping("/layout")
+    public String layout() {
+        return "layout/layoutMain";
     }
 }
