@@ -142,6 +142,16 @@ public class BasicController {
         return "basic/block";
     }
 
+
+    // 자바스크립트 인라인
+    // 화면 들어가서 소스보기 하면 된다!
+    @GetMapping("/javascript")
+    public String javascript(Model model) {
+        model.addAttribute("user", new User("userA", 10));
+        addUsers(model);
+        return "basic/javascript";
+    }
+
     @Data
     static class User {
         private String username;
