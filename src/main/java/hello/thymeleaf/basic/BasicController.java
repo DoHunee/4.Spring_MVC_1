@@ -70,7 +70,6 @@ public class BasicController {
         }
     }
 
-    
     // 유틸리티 객체와 날짜
     @GetMapping("/date")
     public String date(Model model) {
@@ -93,7 +92,7 @@ public class BasicController {
         return "basic/literal";
     }
 
-    // 연산 
+    // 연산
     @GetMapping("/operation")
     public String operation(Model model) {
         model.addAttribute("nullData", null);
@@ -134,6 +133,13 @@ public class BasicController {
     public String comments(Model model) {
         model.addAttribute("data", "Spring!");
         return "basic/comments";
+    }
+
+    // 블록
+    @GetMapping("/block")
+    public String block(Model model) {
+        addUsers(model);
+        return "basic/block";
     }
 
     @Data
